@@ -12,7 +12,7 @@ public partial class NewPage2 : ContentPage
     {
         _context = new();
         InitializeComponent();
-        lst.ItemsSource = _context.Students.ToList(); // pøipojení zdroje dat k ListView
+        lst.ItemsSource = _context.Faktury.ToList(); // pøipojení zdroje dat k ListView
     }
 
     private void SaveStudent(object sender, EventArgs e)
@@ -40,7 +40,7 @@ public partial class NewPage2 : ContentPage
         Faktury keSmazani = lst.SelectedItem as Faktury;
         if (keSmazani != null)
         {
-            _context.Students.Remove(keSmazani); // odebrání studenta z data setu
+            _context.Faktury.Remove(keSmazani); // odebrání studenta z data setu
             _context.SaveChanges(); // uloží zmìny do databáze
             refresh();
         }
@@ -54,6 +54,6 @@ public partial class NewPage2 : ContentPage
     void refresh()
     {
         lst.ItemsSource = null;
-        lst.ItemsSource = _context.Students.ToList();
+        lst.ItemsSource = _context.Faktury.ToList();
     }
 }
